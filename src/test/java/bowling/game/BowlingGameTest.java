@@ -6,9 +6,13 @@ import static org.junit.Assert.*;
 public class BowlingGameTest {
 
     @Test
-    public void something() {
+    public void whenRollingAllGutterBallsThenScoreIsZero() {
         BowlingGame bowlingGame = new BowlingGame();
 
-        assertEquals(false, true);
+        for (int i = 0; i < 20; i++) {
+            bowlingGame.roll(0);
+        }
+
+        assertEquals(0, bowlingGame.score());
     }
 }

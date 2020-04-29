@@ -20,6 +20,17 @@ public class BowlingGameTest {
         assertEquals(20, bowlingGame.score());
     }
 
+    @Test
+    public void whenRollingASpareThenScoreIsTenPlusNextRoll() {
+        bowlingGame.roll(3);
+        bowlingGame.roll(7);
+
+        bowlingGame.roll(7);
+        rollManyTimes(17, 0);
+
+        assertEquals(24, bowlingGame.score());
+    }
+
     private void rollManyTimes(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             bowlingGame.roll(pins);

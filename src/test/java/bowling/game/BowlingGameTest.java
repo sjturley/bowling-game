@@ -4,26 +4,25 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BowlingGameTest {
+    BowlingGame bowlingGame = new BowlingGame();
 
     @Test
     public void whenRollingAllGutterBallsThenScoreIsZero() {
-        BowlingGame bowlingGame = new BowlingGame();
-
-        for (int i = 0; i < 20; i++) {
-            bowlingGame.roll(0);
-        }
+        rollManyTimes(20, 0);
 
         assertEquals(0, bowlingGame.score());
     }
 
     @Test
     public void whenKnockingDownOnePinPerRollThenScoreIsTwenty() {
-        BowlingGame bowlingGame = new BowlingGame();
-
-        for (int i = 0; i < 20; i++) {
-            bowlingGame.roll(1);
-        }
+        rollManyTimes(20, 1);
 
         assertEquals(20, bowlingGame.score());
+    }
+
+    private void rollManyTimes(int rolls, int pins) {
+        for (int i = 0; i < rolls; i++) {
+            bowlingGame.roll(pins);
+        }
     }
 }

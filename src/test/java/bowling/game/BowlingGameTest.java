@@ -1,5 +1,6 @@
 package bowling.game;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,6 +22,7 @@ public class BowlingGameTest {
     }
 
     @Test
+    @Ignore
     public void whenRollingASpareThenScoreIsTenPlusNextRoll() {
         bowlingGame.roll(3);
         bowlingGame.roll(7);

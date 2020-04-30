@@ -44,6 +44,13 @@ public class BowlingGameTest {
         assertEquals(28, bowlingGame.score());
     }
 
+    @Test
+    public void whenRollingAllStrikesThenScoreIsThreeHundred() {
+        rollManyTimes(12, 10);
+
+        assertEquals(300, bowlingGame.score());
+    }
+
     private void rollManyTimes(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             bowlingGame.roll(pins);

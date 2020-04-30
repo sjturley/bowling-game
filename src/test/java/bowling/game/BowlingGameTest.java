@@ -22,7 +22,6 @@ public class BowlingGameTest {
     }
 
     @Test
-    @Ignore
     public void whenRollingASpareThenScoreIsTenPlusNextRoll() {
         bowlingGame.roll(3);
         bowlingGame.roll(7);

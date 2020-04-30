@@ -12,7 +12,11 @@ public class BowlingGame {
     public int score() {
         int score = 0;
         for (int i = 0; i < 21; i++) {
-            score += rolls[i];
+            if (rolls[i] + rolls[i + 1] == 10) {
+                score += 10 + rolls[i + 2];
+            } else {
+                score += rolls[i];
+            }
         }
         return score;
     }

@@ -32,6 +32,18 @@ public class BowlingGameTest {
         assertEquals(24, bowlingGame.score());
     }
 
+    @Test
+    public void whenRollingAStrikeThenScoreIsTenPlusNextTwoRolls() {
+        bowlingGame.roll(10);
+
+        bowlingGame.roll(5);
+        bowlingGame.roll(4);
+
+        rollManyTimes(16, 0);
+
+        assertEquals(28, bowlingGame.score());
+    }
+
     private void rollManyTimes(int rolls, int pins) {
         for (int i = 0; i < rolls; i++) {
             bowlingGame.roll(pins);

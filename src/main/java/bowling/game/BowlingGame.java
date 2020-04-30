@@ -14,6 +14,7 @@ public class BowlingGame {
         int currentRoll = 0;
         for (int frame = 0; frame < 10; frame++) {
             score += rolls[currentRoll] + rolls[currentRoll + 1];
+            currentRoll += 2;
         }
         return score;
     }

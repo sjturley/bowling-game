@@ -13,13 +13,25 @@ public class BowlingGame {
         int score = 0;
         int currentRoll = 0;
         for (int frame = 0; frame < 10; frame++) {
-            if (rolls[currentRoll] + rolls[currentRoll + 1] == 10) {
-                score += 10 + rolls[currentRoll + 2];
+            if (isSpare(currentRoll)) {
+                score += calculateSpareScore(currentRoll);
             } else {
-                score += rolls[currentRoll] + rolls[currentRoll + 1];
+                score += calculateOpenFrameScore(currentRoll);
             }
             currentRoll += 2;
         }
         return score;
+    }
+
+    private int calculateOpenFrameScore(int currentRoll) {
+        return rolls[currentRoll] + rolls[currentRoll + 1];
+    }
+
+    private int calculateSpareScore(int currentRoll) {
+        return 10 + rolls[currentRoll + 2];
+    }
+
+    private boolean isSpare(int currentRoll) {
+        return rolls[currentRoll] + rolls[currentRoll + 1] == 10;
     }
 }
